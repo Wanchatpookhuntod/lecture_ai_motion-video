@@ -1,9 +1,16 @@
-# การจัดการความรู้ยุคดิจิทัล: การประยุกต์ใช้ Generative AI เพื่อสร้างสรรค์คอนเทนต์และสื่อการสอน
+<h1 align="center">Generative AI เพื่อสร้างสรรค์คอนเทนต์และสื่อการสอน</h1>
 
-Repo นี้รวบรวมไฟล์และตัวอย่างที่ใช้ประกอบการบรรยายหัวข้อ
-**“การจัดการความรู้ยุคดิจิทัล: การประยุกต์ใช้ Generative AI เพื่อสร้างสรรค์คอนเทนต์และสื่อการสอน”**
+<p align="center"><b>การจัดการความรู้ยุคดิจิทัล: การประยุกต์ใช้ Generative AI เพื่อสร้างสรรค์คอนเทนต์และสื่อการสอน</b></p>
 
-## รายละเอียดการบรรยาย
+<p align="center">
+  <img alt="Date" src="https://img.shields.io/badge/DATE-27_NOV_2026-2ea44f?style=for-the-badge">
+  <img alt="Time" src="https://img.shields.io/badge/TIME-08.30--16.30-1f6feb?style=for-the-badge">
+  <img alt="Room" src="https://img.shields.io/badge/ROOM-16%2F203-6f42c1?style=for-the-badge">
+  <img alt="Skills" src="https://img.shields.io/badge/SKILLS-2-d73a49?style=for-the-badge">
+  <img alt="Claude Code" src="https://img.shields.io/badge/CLAUDE_CODE-ready-d97757?style=for-the-badge">
+</p>
+
+Repo นี้รวบรวมไฟล์และตัวอย่างที่ใช้ประกอบการบรรยาย ได้แก่ แผนที่ AI ฉบับหน้าเดียว Skill ที่ใช้ใน workshop รายวิชาตัวอย่าง และรายชื่อ Skill ด้าน motion และวิดีโอบน GitHub
 
 | | |
 |---|---|
@@ -12,7 +19,22 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 | **สถานที่** | ห้องประชุม 16/203 คณะเทคโนโลยีสารสนเทศ |
 | **วิทยากร** | อ.วันฉัตร พูขุนทด |
 
-## เนื้อหาบรรยาย
+<a id="toc"></a>
+
+## สารบัญ
+
+- [1. เนื้อหาบรรยาย: แผนที่ AI ฉบับหน้าเดียว](#lecture)
+  - [Model Landscape](#lecture-1) · [Model Type](#lecture-2) · [Flow](#lecture-3) · [เปิดกล่องดำ](#lecture-4) · [Skill](#lecture-5) · [MCP](#lecture-6)
+  - [ไฟล์ฉบับเต็ม](#lecture-files)
+- [2. Skill ที่ใช้ใน Workshop](#skills)
+  - [รายวิชาตัวอย่าง](#workshop)
+- [3. Skill ด้าน Motion และ Video บน GitHub](#github-skills)
+- [4. โครงสร้าง repo](#structure)
+- [5. การดาวน์โหลดไฟล์](#download)
+
+<a id="lecture"></a>
+
+## 1. เนื้อหาบรรยาย
 
 ### แผนที่ AI ฉบับหน้าเดียว: ตั้งแต่โมเดลถึงเครื่องมือ
 
@@ -22,12 +44,16 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 
 > **เส้นทาง:** ① โมเดลมีใครบ้าง → ② ชนิดของโมเดล → ③ Flow → ④ เปิดกล่องดำ → ⑤ Skill → ⑥ MCP
 
+<a id="lecture-1"></a>
+
 #### 1 · Model Landscape: ใครเป็นใคร
 
 | | Closed Model · โมเดลปิด | Open Model · โมเดลเปิด |
 |---|---|---|
 | **คืออะไร** | ของบริษัท ใช้ผ่านแอปหรือ API ดาวน์โหลดตัวโมเดลไม่ได้ | เปิดให้ดาวน์โหลดน้ำหนักโมเดล (weights) ไปรันบนเครื่องตัวเองได้ |
 | **ตัวอย่าง** | **Claude**: Opus, Fable<br>**GPT**: Sol, Astra<br>**Gemini**: Neon, Carbon | Llama (Meta), DeepSeek, Kimi, Qwen |
+
+<a id="lecture-2"></a>
 
 #### 2 · Model Type: แยกตามสิ่งที่รับเข้า → สร้างออก
 
@@ -37,6 +63,8 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 | **Image / Video** | text → image · video | ภาพ: Nano Banana, GPT Image, Midjourney<br>วิดีโอ: Veo, Sora |
 | **Speech / Sound** | เสียง ↔ ข้อความ · เพลง | Whisper (เสียง → ข้อความ)<br>Gemini TTS (ข้อความ → เสียงพูด)<br>Suno (ข้อความ → เพลง) |
 
+<a id="lecture-3"></a>
+
 #### 3 · Flow: Prompt → Model → Output
 
 เราพิมพ์ Prompt เข้าไป โมเดลประมวลผลข้างในซึ่งเรามองไม่เห็น (กล่องดำ) แล้วส่งคำตอบออกมา ความรู้ในกล่องมาจากข้อมูลมหาศาลทั่วโลกที่ใช้ฝึกโมเดล ส่วนคำตอบมีเครื่องหมาย ? เพราะคาดเดาไม่ได้เต็มร้อย และบางครั้งก็ผิด (hallucination)
@@ -45,6 +73,8 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
   <source media="(prefers-color-scheme: dark)" srcset="lecture/ai-map-one-page/figures/flow-dark.png">
   <img src="lecture/ai-map-one-page/figures/flow-light.png" alt="Prompt เข้ากล่องดำ (Model) ที่ฝึกจากข้อมูลทั่วโลก แล้วได้ Output ที่คาดเดาไม่ได้เต็มร้อย" width="720">
 </picture></p>
+
+<a id="lecture-4"></a>
 
 #### 4 · เปิดกล่องดำ: Transformer → LLM
 
@@ -60,6 +90,8 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
   <img src="lecture/ai-map-one-page/figures/llm-bridge-light.png" alt="LLM รู้กว้างแทบทุกเรื่อง เราต้องหยิบมาใช้เฉพาะส่วนที่งานนี้ต้องการ" width="560">
 </picture></p>
 
+<a id="lecture-5"></a>
+
 #### 5 · Skill: ล็อกผลลัพธ์ให้คงที่
 
 โดยปกติโมเดลตอบได้หลายแบบ (จุดที่กระจายทั้งกรอบ) **Skill** คือชุดคำสั่งและขั้นตอนที่เตรียมไว้ล่วงหน้า ช่วยบีบให้คำตอบอยู่ในกรอบที่เราต้องการ (กรอบแดง) ผลลัพธ์จึงคงที่และทำซ้ำได้ทุกครั้ง
@@ -68,6 +100,8 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
   <source media="(prefers-color-scheme: dark)" srcset="lecture/ai-map-one-page/figures/skill-dark.png">
   <img src="lecture/ai-map-one-page/figures/skill-light.png" alt="Input ผ่าน Skill ที่บีบคำตอบที่เป็นไปได้ทั้งหมดให้อยู่ในกรอบแดง ได้ Output ที่คงที่" width="720">
 </picture></p>
+
+<a id="lecture-6"></a>
 
 #### 6 · MCP: Model Context Protocol
 
@@ -82,7 +116,9 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 
 > **สรุป:** เลือกโมเดลให้ตรงงาน · เข้าใจว่าข้างในคือ Transformer · ใช้ Skill คุมผลลัพธ์ · ใช้ MCP ให้ AI ลงมือทำ
 
-**ไฟล์ฉบับเต็ม**
+<a id="lecture-files"></a>
+
+#### ไฟล์ฉบับเต็ม
 
 | ไฟล์ | รูปแบบ |
 |---|---|
@@ -90,7 +126,9 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 | [ai-map-one-page.png](lecture/ai-map-one-page/export/ai-map-one-page.png) / [.pdf](lecture/ai-map-one-page/export/ai-map-one-page.pdf) | ธีมสว่าง |
 | [ai-map-one-page-dark.png](lecture/ai-map-one-page/export/ai-map-one-page-dark.png) / [.pdf](lecture/ai-map-one-page/export/ai-map-one-page-dark.pdf) | ธีมมืด |
 
-## Skill ที่ใช้ใน Workshop
+<a id="skills"></a>
+
+## 2. Skill ที่ใช้ใน Workshop
 
 | Skill | ใช้ทำอะไร | โฟลเดอร์ |
 |---|---|---|
@@ -100,6 +138,8 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 วิธีติดตั้งและสิ่งที่ต้องมีในเครื่องของ motion-graphic-dsh-fast ดูที่ [README ของปลั๊กอิน](skills/motion-graphic-dsh-fast/README.md)
 ส่วน skill ของ HyperFrames ที่รวมมาในปลั๊กอินเป็นของโครงการ [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) ดูรายละเอียดที่ [ATTRIBUTION.md](skills/motion-graphic-dsh-fast/ATTRIBUTION.md)
 
+<a id="workshop"></a>
+
 ### รายวิชาตัวอย่างสำหรับ Workshop
 
 | รายวิชา | ไฟล์ |
@@ -108,7 +148,9 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 
 ใช้คู่กับ skill **lecture-clip-production** เปิดโฟลเดอร์ของรายวิชาใน Claude Code แล้วพิมพ์ `เริ่มวิชาใหม่` หรือ `script 3.1`
 
-## Skill ด้าน Motion และ Video ที่นิยมบน GitHub
+<a id="github-skills"></a>
+
+## 3. Skill ด้าน Motion และ Video ที่นิยมบน GitHub
 
 รวม repo ที่มี Skill (ไฟล์ `SKILL.md`) ให้ AI agent เช่น Claude Code หรือ Codex ใช้ทำงานโมชันและวิดีโอ แต่ละกลุ่มเรียงตามจำนวนดาว
 
@@ -135,10 +177,36 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 
 จำนวนดาว ณ วันที่ 26 พ.ย. 2569 ก่อนติดตั้ง Skill จากภายนอก ควรเปิดอ่าน `SKILL.md` และสคริปต์ในนั้นก่อนทุกครั้ง
 
-## การดาวน์โหลดไฟล์
+<a id="structure"></a>
+
+## 4. โครงสร้าง repo
+
+```text
+lecture_ai_motion-video/
+├── README.md                       หน้านี้
+├── lecture/                        เนื้อหาบรรยาย
+│   └── ai-map-one-page/
+│       ├── index.html              แผนที่ AI ฉบับหน้าเว็บ
+│       ├── HOW-TO.md               วิธีสร้างแผนที่แบบนี้เอง
+│       ├── export/                 ไฟล์ PNG และ PDF (ธีมสว่าง/มืด)
+│       ├── figures/                ภาพประกอบแต่ละหัวข้อ
+│       └── notes/                  ภาพประกอบใน HOW-TO
+├── skills/                         Skill ที่ใช้ใน workshop
+│   ├── lecture-clip-production/    ผลิตรายวิชาและคลิปบรรยาย
+│   └── motion-graphic-dsh-fast/    ปลั๊กอินโมชันกราฟิก (HyperFrames)
+└── workshop/                       รายวิชาตัวอย่าง
+    └── game-design-6004118/
+        └── course_card.md          การ์ดรายวิชาการออกแบบเกม
+```
+
+<a id="download"></a>
+
+## 5. การดาวน์โหลดไฟล์
 
 ```bash
 git clone https://github.com/Wanchatpookhuntod/lecture_ai_motion-video.git
 ```
 
 หรือกดปุ่ม **Code → Download ZIP** บนหน้า GitHub
+
+<p align="right"><a href="#toc">กลับไปสารบัญ ↑</a></p>
