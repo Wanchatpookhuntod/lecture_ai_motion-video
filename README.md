@@ -21,16 +21,14 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 
 <a id="toc"></a>
 
-## สารบัญ
-
-- [1. เนื้อหาบรรยาย: แผนที่ AI ฉบับหน้าเดียว](#lecture)
-  - [Model Landscape](#lecture-1) · [Model Type](#lecture-2) · [Flow](#lecture-3) · [เปิดกล่องดำ](#lecture-4) · [Skill](#lecture-5) · [MCP](#lecture-6)
-  - [ไฟล์ฉบับเต็ม](#lecture-files)
-- [2. Skill ที่ใช้ใน Workshop](#skills)
-  - [รายวิชาตัวอย่าง](#workshop)
-- [3. Skill ด้าน Motion และ Video บน GitHub](#github-skills)
-- [4. โครงสร้าง repo](#structure)
-- [5. การดาวน์โหลดไฟล์](#download)
+<table align="center"><tr>
+<td align="center"><a href="#lecture"><b>บรรยาย</b></a></td>
+<td align="center"><a href="#skills"><b>Skill</b></a></td>
+<td align="center"><a href="#workshop"><b>Workshop</b></a></td>
+<td align="center"><a href="#github-skills"><b>GitHub</b></a></td>
+<td align="center"><a href="#structure"><b>โครงสร้าง</b></a></td>
+<td align="center"><a href="#download"><b>ดาวน์โหลด</b></a></td>
+</tr></table>
 
 <a id="lecture"></a>
 
@@ -42,7 +40,7 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 
 📝 อยากทำแบบนี้เอง ดู [วิธีสร้างแผนที่ AI ฉบับหน้าเดียว](lecture/ai-map-one-page/HOW-TO.md)
 
-> **เส้นทาง:** ① โมเดลมีใครบ้าง → ② ชนิดของโมเดล → ③ Flow → ④ เปิดกล่องดำ → ⑤ Skill → ⑥ MCP
+> **เส้นทาง:** [① โมเดลมีใครบ้าง](#lecture-1) → [② ชนิดของโมเดล](#lecture-2) → [③ Flow](#lecture-3) → [④ เปิดกล่องดำ](#lecture-4) → [⑤ Skill](#lecture-5) → [⑥ MCP](#lecture-6) · [ไฟล์ฉบับเต็ม](#lecture-files)
 
 <a id="lecture-1"></a>
 
@@ -209,4 +207,4 @@ git clone https://github.com/Wanchatpookhuntod/lecture_ai_motion-video.git
 
 หรือกดปุ่ม **Code → Download ZIP** บนหน้า GitHub
 
-<p align="right"><a href="#toc">กลับไปสารบัญ ↑</a></p>
+<p align="right"><a href="#toc">กลับขึ้นด้านบน ↑</a></p>
