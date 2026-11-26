@@ -90,7 +90,7 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 | [ai-map-one-page.png](lecture/ai-map-one-page/export/ai-map-one-page.png) / [.pdf](lecture/ai-map-one-page/export/ai-map-one-page.pdf) | ธีมสว่าง |
 | [ai-map-one-page-dark.png](lecture/ai-map-one-page/export/ai-map-one-page-dark.png) / [.pdf](lecture/ai-map-one-page/export/ai-map-one-page-dark.pdf) | ธีมมืด |
 
-## Skill ที่ใช้ในการบรรยาย
+## Skill ที่ใช้ใน Workshop
 
 | Skill | ใช้ทำอะไร | โฟลเดอร์ |
 |---|---|---|
@@ -99,6 +99,14 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 
 วิธีติดตั้งและสิ่งที่ต้องมีในเครื่องของ motion-graphic-dsh-fast ดูที่ [README ของปลั๊กอิน](skills/motion-graphic-dsh-fast/README.md)
 ส่วน skill ของ HyperFrames ที่รวมมาในปลั๊กอินเป็นของโครงการ [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) ดูรายละเอียดที่ [ATTRIBUTION.md](skills/motion-graphic-dsh-fast/ATTRIBUTION.md)
+
+### รายวิชาตัวอย่างสำหรับ Workshop
+
+| รายวิชา | ไฟล์ |
+|---|---|
+| **วท 6004118 การออกแบบเกม** (Godot Engine, นักศึกษาเทคโนโลยีมัลติมีเดีย ชั้นปี 2, 16 สัปดาห์) | [course_card.md](workshop/game-design-6004118/course_card.md) |
+
+ใช้คู่กับ skill **lecture-clip-production** เปิดโฟลเดอร์ของรายวิชาใน Claude Code แล้วพิมพ์ `เริ่มวิชาใหม่` หรือ `script 3.1`
 
 ## Skill ด้าน Motion และ Video ที่นิยมบน GitHub
 
