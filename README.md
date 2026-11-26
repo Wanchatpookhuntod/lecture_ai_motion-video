@@ -27,7 +27,7 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 | | Closed Model · โมเดลปิด | Open Model · โมเดลเปิด |
 |---|---|---|
 | **คืออะไร** | ของบริษัท ใช้ผ่านแอปหรือ API ดาวน์โหลดตัวโมเดลไม่ได้ | เปิดให้ดาวน์โหลดน้ำหนักโมเดล (weights) ไปรันบนเครื่องตัวเองได้ |
-| **ตัวอย่าง** | **Claude**: Opus, Fable<br>**GPT**: SGL, Astra<br>**Gemini**: Aeon, Carbon | Llama (Meta), DeepSeek, Kimi, Qwen |
+| **ตัวอย่าง** | **Claude**: Opus, Fable<br>**GPT**: Sol, Astra<br>**Gemini**: Neon, Carbon | Llama (Meta), DeepSeek, Kimi, Qwen |
 
 #### 2 · Model Type: แยกตามสิ่งที่รับเข้า → สร้างออก
 
