@@ -10,6 +10,17 @@
   <img alt="Claude Code" src="https://img.shields.io/badge/CLAUDE_CODE-ready-d97757?style=for-the-badge">
 </p>
 
+<a id="toc"></a>
+
+<p align="center">
+  <a href="#lecture"><img alt="Lecture" src="https://img.shields.io/badge/LECTURE-24292f?style=for-the-badge"></a>
+  <a href="#skills"><img alt="Skills" src="https://img.shields.io/badge/SKILLS-24292f?style=for-the-badge"></a>
+  <a href="#workshop"><img alt="Workshop" src="https://img.shields.io/badge/WORKSHOP-24292f?style=for-the-badge"></a>
+  <a href="#github-skills"><img alt="Github" src="https://img.shields.io/badge/GITHUB-24292f?style=for-the-badge"></a>
+  <a href="#structure"><img alt="Structure" src="https://img.shields.io/badge/STRUCTURE-24292f?style=for-the-badge"></a>
+  <a href="#download"><img alt="Download" src="https://img.shields.io/badge/DOWNLOAD-24292f?style=for-the-badge"></a>
+</p>
+
 Repo นี้รวบรวมไฟล์และตัวอย่างที่ใช้ประกอบการบรรยาย ได้แก่ แผนที่ AI ฉบับหน้าเดียว Skill ที่ใช้ใน workshop รายวิชาตัวอย่าง และรายชื่อ Skill ด้าน motion และวิดีโอบน GitHub
 
 | | |
@@ -18,17 +29,6 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 | **เวลา** | 08.30–16.30 น. |
 | **สถานที่** | ห้องประชุม 16/203 คณะเทคโนโลยีสารสนเทศ |
 | **วิทยากร** | อ.วันฉัตร พูขุนทด |
-
-<a id="toc"></a>
-
-<table align="center"><tr>
-<td align="center"><a href="#lecture"><b>บรรยาย</b></a></td>
-<td align="center"><a href="#skills"><b>Skill</b></a></td>
-<td align="center"><a href="#workshop"><b>Workshop</b></a></td>
-<td align="center"><a href="#github-skills"><b>GitHub</b></a></td>
-<td align="center"><a href="#structure"><b>โครงสร้าง</b></a></td>
-<td align="center"><a href="#download"><b>ดาวน์โหลด</b></a></td>
-</tr></table>
 
 <a id="lecture"></a>
 
