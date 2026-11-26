@@ -3,11 +3,11 @@
 <p align="center"><b>การจัดการความรู้ยุคดิจิทัล: การประยุกต์ใช้ Generative AI เพื่อสร้างสรรค์คอนเทนต์และสื่อการสอน</b></p>
 
 <p align="center">
-  <img alt="Date" src="https://img.shields.io/badge/DATE-27_NOV_2026-2ea44f?style=for-the-badge">
-  <img alt="Time" src="https://img.shields.io/badge/TIME-08.30--16.30-1f6feb?style=for-the-badge">
-  <img alt="Room" src="https://img.shields.io/badge/ROOM-16%2F203-6f42c1?style=for-the-badge">
-  <img alt="Skills" src="https://img.shields.io/badge/SKILLS-2-d73a49?style=for-the-badge">
-  <img alt="Claude Code" src="https://img.shields.io/badge/CLAUDE_CODE-ready-d97757?style=for-the-badge">
+  <picture><img alt="Date" src="https://img.shields.io/badge/DATE-27_NOV_2026-2ea44f?style=for-the-badge"></picture>
+  <picture><img alt="Time" src="https://img.shields.io/badge/TIME-08.30--16.30-1f6feb?style=for-the-badge"></picture>
+  <picture><img alt="Room" src="https://img.shields.io/badge/ROOM-16%2F203-6f42c1?style=for-the-badge"></picture>
+  <picture><img alt="Skills" src="https://img.shields.io/badge/SKILLS-2-d73a49?style=for-the-badge"></picture>
+  <picture><img alt="Claude Code" src="https://img.shields.io/badge/CLAUDE_CODE-ready-d97757?style=for-the-badge"></picture>
 </p>
 
 <a id="toc"></a>
