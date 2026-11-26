@@ -98,6 +98,33 @@ MCP คือ "ภาษากลาง" ที่ทำให้ AI สั่�
 วิธีติดตั้งและสิ่งที่ต้องมีในเครื่องของ motion-graphic-dsh-fast ดูที่ [README ของปลั๊กอิน](skills/motion-graphic-dsh-fast/README.md)
 ส่วน skill ของ HyperFrames ที่รวมมาในปลั๊กอินเป็นของโครงการ [HyperFrames](https://github.com/heygen-com/hyperframes) (Apache-2.0) ดูรายละเอียดที่ [ATTRIBUTION.md](skills/motion-graphic-dsh-fast/ATTRIBUTION.md)
 
+## Skill ด้าน Motion และ Video ที่นิยมบน GitHub
+
+รวม repo ที่มี Skill (ไฟล์ `SKILL.md`) ให้ AI agent เช่น Claude Code หรือ Codex ใช้ทำงานโมชันและวิดีโอ แต่ละกลุ่มเรียงตามจำนวนดาว
+
+### Motion graphics: สร้างภาพเคลื่อนไหวจากโค้ด
+
+| Repo | ใช้ทำอะไร | ⭐ |
+|---|---|---|
+| [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | เขียนวิดีโอเป็น HTML แล้ว render เป็น MP4 โดย HeyGen (เป็นฐานของ motion-graphic-dsh-fast) | 90.6k |
+| [remotion-dev/skills](https://github.com/remotion-dev/skills) | Skill ทางการของ Remotion สำหรับสร้างวิดีโอด้วย React | 8.1k |
+| [haidrrrry/claude-remotion-skill](https://github.com/haidrrrry/claude-remotion-skill) | Skill ทำโมชันกราฟิกด้วย Remotion มี B-roll ซับไตเติล และ sound design | 1.4k |
+
+### Video: ตัดต่อและผลิตวิดีโอ
+
+| Repo | ใช้ทำอะไร | ⭐ |
+|---|---|---|
+| [OpenMontageInc/OpenMontage](https://github.com/OpenMontageInc/OpenMontage) | ระบบผลิตวิดีโอแบบ agentic โอเพนซอร์ส มี 12 pipeline เครื่องมือกว่า 100 ตัว และไฟล์ skill กับความรู้ด้านโปรดักชันกว่า 700 ไฟล์ เปลี่ยน AI coding assistant ให้เป็นสตูดิโอผลิตวิดีโอ (สัญญาอนุญาต AGPL-3.0) | 83.6k |
+| [kajisho5/ffmpeg-skill](https://github.com/kajisho5/ffmpeg-skill) | ตัดต่อวิดีโอในเครื่องด้วย FFmpeg 42 เครื่องมือ เช่น ตัด ใส่ซับ ปรับสัดส่วนภาพ ปรับความดังเสียง ส่งออกตามแพลตฟอร์ม มี MCP server ไม่ต้องใช้ cloud | 11.4k |
+| [digitalsamba/claude-code-video-toolkit](https://github.com/digitalsamba/claude-code-video-toolkit) | ทำวิดีโอครบขั้นตอนด้วย Claude Code ตั้งแต่บท เสียงพากย์ AI ดนตรี คลิป จนถึง render ด้วยโมเดลโอเพนซอร์ส | 2.8k |
+| [heygen-com/skills](https://github.com/heygen-com/skills) | สร้างอวตารและผลิตวิดีโอผ่าน Video Agent ของ HeyGen (ต้องมีบัญชี HeyGen) | 0.6k |
+
+### รวมลิงก์เพิ่มเติม
+
+- [zhuyansen/awesome-claude-video-skills](https://github.com/zhuyansen/awesome-claude-video-skills) (⭐ 2.8k): รายชื่อรวม repo ด้านวิดีโอสำหรับ coding agent 180 repo แยกตามประเภท และให้เกรดความปลอดภัย
+
+จำนวนดาว ณ วันที่ 26 พ.ย. 2569 ก่อนติดตั้ง Skill จากภายนอก ควรเปิดอ่าน `SKILL.md` และสคริปต์ในนั้นก่อนทุกครั้ง
+
 ## การดาวน์โหลดไฟล์
 
 ```bash
