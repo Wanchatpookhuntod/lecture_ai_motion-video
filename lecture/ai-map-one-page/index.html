@@ -1,0 +1,330 @@
+<title>แผนที่ AI ฉบับหน้าเดียว</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: an A4-like whiteboard sheet; six sections read top-to-bottom in teaching order, marker highlights echo the hand-drawn notes */
+:root{
+  --bg:#EEF1F5;
+  --sheet:#FFFFFF;
+  --ink:#1C2230;
+  --muted:#5D6677;
+  --line:#C9D0DB;
+  --mk-blue:rgba(64,140,255,.38);
+  --mk-yellow:rgba(255,207,51,.55);
+  --blue:#2F6FD6;
+  --red:#D9434B;
+  --box:#2A3142;
+  --box-fg:#FFFFFF;
+  --chip:#F2F5F9;
+  --f-display:"Mitr","IBM Plex Sans Thai",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Thai","Noto Sans Thai",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1117;--sheet:#171B24;--ink:#E6E9EF;--muted:#9AA3B4;--line:#323A4A;
+  --mk-blue:rgba(80,150,255,.42);--mk-yellow:rgba(240,190,40,.42);
+  --blue:#7FB0FF;--red:#FF6B72;--box:#4A5470;--box-fg:#FFFFFF;--chip:#202634;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1117;--sheet:#171B24;--ink:#E6E9EF;--muted:#9AA3B4;--line:#323A4A;
+  --mk-blue:rgba(80,150,255,.42);--mk-yellow:rgba(240,190,40,.42);
+  --blue:#7FB0FF;--red:#FF6B72;--box:#4A5470;--box-fg:#FFFFFF;--chip:#202634;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px}
+.sheet{max-width:1040px;margin:0 auto;background:var(--sheet);border:1px solid var(--line);border-radius:6px;
+  padding:clamp(20px,4vw,48px);display:grid;gap:36px}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;margin:0;text-wrap:balance;line-height:1.25}
+h1{font-size:clamp(28px,4.4vw,42px)}
+h2{font-size:22px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+h3{font-size:16px;font-weight:500}
+p{margin:0}
+.en{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.mk{padding:0 .25em;margin:0 -.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background:linear-gradient(176deg,transparent 18%,var(--mk) 20%,var(--mk) 88%,transparent 90%)}
+.mk.b{--mk:var(--mk-blue)} .mk.y{--mk:var(--mk-yellow)}
+header{display:grid;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+header p{color:var(--muted);max-width:62ch}
+.route{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);margin-top:6px}
+.route b{color:var(--ink);font-weight:500}
+section{display:grid;gap:16px;min-width:0}
+.bridge{max-width:760px;width:100%;margin:-12px auto}
+.lead{color:var(--muted);max-width:68ch}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.panel{border:1.5px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:12px;align-content:start;min-width:0}
+.panel.dashed{border-style:dashed}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--f-display);font-weight:500;width:34%;padding-right:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--chip);border-radius:999px;padding:2px 11px;font-size:13.5px;white-space:nowrap}
+.note{font-size:13px;color:var(--muted);border-left:3px solid var(--mk-yellow);padding-left:10px}
+.types{display:grid;gap:10px}
+.type{display:grid;grid-template-columns:150px 1fr;gap:6px 18px;align-items:center;padding:12px 0;border-bottom:1px dashed var(--line)}
+.type:last-child{border-bottom:0}
+.type .io{font-family:var(--f-mono);font-size:12px;color:var(--blue)}
+.type .ex{display:flex;flex-wrap:wrap;gap:6px}
+.type .ex .chip small{color:var(--muted);font-size:11.5px;margin-left:4px}
+@media (max-width:560px){.type{grid-template-columns:1fr}}
+.fig{overflow-x:auto}
+svg{display:block;width:100%;height:auto;max-width:100%}
+svg text{font-family:var(--f-display);fill:var(--ink)}
+svg .t-muted{fill:var(--muted);font-family:var(--f-body)}
+svg .t-mono{font-family:var(--f-mono)}
+svg .s-ink{stroke:var(--ink);fill:none}
+svg .s-muted{stroke:var(--muted);fill:none}
+svg .s-line{stroke:var(--line);fill:none}
+svg .s-blue{stroke:var(--blue);fill:none}
+svg .s-red{stroke:var(--red);fill:none}
+svg .f-ink{fill:var(--ink)}
+svg .f-muted{fill:var(--muted)}
+svg .f-sheet{fill:var(--sheet)}
+svg .f-box{fill:var(--box)}
+svg .t-box{fill:var(--box-fg)}
+svg .f-red{fill:var(--red)}
+svg .f-blue{fill:var(--blue)}
+svg .f-mkb{fill:var(--mk-blue)}
+svg .f-mky{fill:var(--mk-yellow)}
+.eq{font-family:var(--f-display);font-size:clamp(16px,2.4vw,20px);display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.eq span{border:1.5px solid var(--ink);border-radius:8px;padding:4px 12px}
+.eq .res{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.kv{display:grid;gap:8px;font-size:14px}
+.kv div{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.kv b{font-family:var(--f-mono);color:var(--blue);font-weight:500}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+
+<main class="sheet">
+  <header>
+    <span class="en">AI Basics · One Page</span>
+    <h1><span class="mk b">แผนที่ AI</span> ตั้งแต่โมเดลถึงเครื่องมือ</h1>
+    <p>รู้ว่ามีโมเดลอะไรบ้าง โมเดลทำงานอย่างไร และจะใช้ Skill กับ MCP ต่อยอดให้ AI ทำงานได้จริงอย่างไร</p>
+    <div class="route"><b>1</b> โมเดลมีใครบ้าง <b>2</b> ชนิดของโมเดล <b>3</b> Flow <b>4</b> เปิดกล่องดำ <b>5</b> Skill <b>6</b> MCP</div>
+  </header>
+
+  <!-- 1 Landscape -->
+  <section>
+    <h2><span class="mk y">1 · Model Landscape</span><span class="en">ใครเป็นใคร</span></h2>
+    <div class="two">
+      <div class="panel">
+        <h3>Closed Model · โมเดลปิด</h3>
+        <p class="lead" style="font-size:13.5px">ของบริษัท ใช้ผ่านแอปหรือ API ดาวน์โหลดตัวโมเดลไม่ได้</p>
+        <table>
+          <tr><td>Claude</td><td><div class="chips"><span class="chip">Opus</span><span class="chip">Fable</span></div></td></tr>
+          <tr><td>GPT</td><td><div class="chips"><span class="chip">SGL</span><span class="chip">Astra</span></div></td></tr>
+          <tr><td>Gemini</td><td><div class="chips"><span class="chip">Aeon</span><span class="chip">Carbon</span></div></td></tr>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>Open Model · โมเดลเปิด</h3>
+        <p class="lead" style="font-size:13.5px">เปิดให้ดาวน์โหลดน้ำหนักโมเดล (weights) ไปรันบนเครื่องตัวเองได้</p>
+        <div class="chips"><span class="chip">Llama · Meta</span><span class="chip">DeepSeek</span><span class="chip">Kimi</span><span class="chip">Qwen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 Types -->
+  <section>
+    <h2><span class="mk y">2 · Model Type</span><span class="en">แยกตามสิ่งที่รับเข้า → สร้างออก</span></h2>
+    <div class="types">
+      <div class="type">
+        <div><h3>LLM · ภาษา</h3><span class="io">text → text</span></div>
+        <div class="ex"><span class="chip">Claude</span><span class="chip">GPT</span><span class="chip">Gemini</span></div>
+      </div>
+      <div class="type">
+        <div><h3>Image / Video</h3><span class="io">text → image · video</span></div>
+        <div class="ex"><span class="chip">Nano Banana<small>ภาพ</small></span><span class="chip">GPT Image<small>ภาพ</small></span><span class="chip">Midjourney<small>ภาพ</small></span><span class="chip">Veo<small>วิดีโอ</small></span><span class="chip">Sora<small>วิดีโอ</small></span></div>
+      </div>
+      <div class="type">
+        <div><h3>Speech / Sound</h3><span class="io">เสียง ↔ ข้อความ · เพลง</span></div>
+        <div class="ex"><span class="chip">Whisper<small>เสียง → ข้อความ</small></span><span class="chip">Gemini TTS<small>ข้อความ → เสียงพูด</small></span><span class="chip">Suno<small>ข้อความ → เพลง</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Flow -->
+  <section>
+    <h2><span class="mk b">3 · Flow</span><span class="en">Prompt → Model → Output</span></h2>
+    <p class="lead">เราพิมพ์ Prompt เข้าไป โมเดลประมวลผลข้างในซึ่งเรามองไม่เห็น (กล่องดำ) แล้วส่งคำตอบออกมา ความรู้ในกล่องมาจากข้อมูลมหาศาลทั่วโลกที่ใช้ฝึกโมเดล ส่วนคำตอบมีเครื่องหมาย ? เพราะคาดเดาไม่ได้เต็มร้อย และบางครั้งก็ผิด (hallucination)</p>
+    <div class="fig">
+      <svg viewBox="0 0 860 230" role="img" aria-label="Prompt เข้าโมเดลกล่องดำ ได้ Output ที่มีเครื่องหมายคำถาม โดยมีข้อมูลจากโลกใช้ฝึกโมเดล">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="f-ink"/></marker></defs>
+        <!-- world -->
+        <circle cx="430" cy="42" r="30" class="s-muted" stroke-width="1.5"/>
+        <path d="M410 26c8 4 6 12 14 14s6 10 14 8M440 18c-2 8 6 10 10 16M406 50c6-2 12 4 18 2" class="s-muted" stroke-width="1.3"/>
+        <text x="476" y="38" font-size="14" class="t-muted">ข้อมูลจากทั่วโลก</text>
+        <text x="476" y="56" font-size="12" class="t-muted">ใช้ฝึก (train) โมเดล</text>
+        <path d="M430 74 V104" class="s-muted" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ar)"/>
+        <!-- prompt -->
+        <text x="60" y="172" font-size="34">Prompt</text>
+        <path d="M200 160 H330" class="s-ink" stroke-width="2" marker-end="url(#ar)"/>
+        <!-- cube -->
+        <g transform="translate(345 108)">
+          <path d="M0 22 L28 0 H118 L90 22 Z" class="f-box" opacity=".75"/>
+          <path d="M90 22 L118 0 V82 L90 104 Z" class="f-box" opacity=".9"/>
+          <rect x="0" y="22" width="90" height="82" class="f-box"/>
+          <text x="45" y="62" font-size="13" text-anchor="middle" class="t-box">BLACK</text>
+          <text x="45" y="80" font-size="13" text-anchor="middle" class="t-box">BOX</text>
+        </g>
+        <text x="400" y="234" font-size="15" text-anchor="middle" class="t-muted" dy="-6">Model</text>
+        <path d="M475 160 H600" class="s-ink" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="615" y="172" font-size="34">Output</text>
+        <text x="745" y="172" font-size="34" class="t-muted">…</text>
+        <text x="790" y="150" font-size="48" fill="var(--red)" style="fill:var(--red)">?</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 4 Inside -->
+  <section>
+    <h2><span class="mk b">4 · เปิดกล่องดำ</span><span class="en">Transformer → LLM</span></h2>
+    <p class="lead">ข้างในกล่องคือ <b>Neural Network</b> แบบที่เรียกว่า <b>Transformer</b> จุดเด่นคือมองทุกคำในประโยคพร้อมกัน (Attention) จึงประมวลผลขนานกันได้ พอทำงานบนชิป GPU ซึ่งคำนวณขนานได้เก่ง ก็สร้างโมเดลขนาดใหญ่มากได้</p>
+    <div class="two">
+      <div class="panel dashed">
+        <span class="en">แบบเดิม · อ่านทีละคำ</span>
+        <svg viewBox="0 0 420 80" role="img" aria-label="คำ W ห้าคำต่อกันทีละคำจนได้ประโยค S">
+          <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="f-muted"/></marker></defs>
+          <g font-size="15" text-anchor="middle">
+            <circle cx="30" cy="40" r="20" class="s-muted" stroke-width="1.5"/><text x="30" y="45">W</text>
+            <text x="64" y="45" class="t-muted">+</text>
+            <circle cx="98" cy="40" r="20" class="s-muted" stroke-width="1.5"/><text x="98" y="45">W</text>
+            <text x="132" y="45" class="t-muted">+</text>
+            <circle cx="166" cy="40" r="20" class="s-muted" stroke-width="1.5"/><text x="166" y="45">W</text>
+            <text x="200" y="45" class="t-muted">+</text>
+            <circle cx="234" cy="40" r="20" class="s-muted" stroke-width="1.5"/><text x="234" y="45">W</text>
+            <text x="268" y="45" class="t-muted">+</text>
+            <circle cx="302" cy="40" r="20" class="s-muted" stroke-width="1.5"/><text x="302" y="45">W</text>
+            <path d="M330 40 H362" class="s-muted" stroke-width="1.5" marker-end="url(#ar2)"/>
+            <circle cx="390" cy="40" r="20" class="s-ink" stroke-width="2"/><text x="390" y="45">S</text>
+          </g>
+        </svg>
+        <p style="font-size:13.5px;color:var(--muted)">ต้องรอคำก่อนหน้าเสร็จก่อน จึงช้าและลืมคำต้นประโยคได้ง่าย</p>
+      </div>
+      <div class="panel">
+        <span class="en" style="color:var(--blue)">Transformer · มองทุกคำพร้อมกัน</span>
+        <svg viewBox="0 0 420 80" role="img" aria-label="ทุกคำในกล่องเชื่อมถึงกันหมดพร้อมกัน แล้วได้ประโยค S">
+          <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="f-ink"/></marker></defs>
+          <rect x="4" y="6" width="316" height="68" rx="8" class="s-ink" stroke-width="1.5"/>
+          <g class="s-blue" stroke-width="1.2" opacity=".75">
+            <path d="M40 52 Q75 14 110 52"/><path d="M40 52 Q110 0 180 52"/><path d="M40 52 Q145 -10 250 52"/><path d="M40 52 Q165 -22 290 52"/>
+            <path d="M110 52 Q145 18 180 52"/><path d="M110 52 Q180 6 250 52"/><path d="M180 52 Q215 18 250 52"/><path d="M180 52 Q235 10 290 52"/><path d="M250 52 Q270 30 290 52"/><path d="M110 52 Q200 -6 290 52"/>
+          </g>
+          <g font-size="15" text-anchor="middle">
+            <text x="40" y="66">W</text><text x="110" y="66">W</text><text x="180" y="66">W</text><text x="250" y="66">W</text><text x="290" y="66">W</text>
+          </g>
+          <path d="M330 40 H362" class="s-ink" stroke-width="2" marker-end="url(#ar3)"/>
+          <circle cx="390" cy="40" r="20" class="s-ink" stroke-width="2"/><text x="390" y="45" font-size="15" text-anchor="middle">S</text>
+        </svg>
+        <p style="font-size:13.5px;color:var(--muted)">ทุกคำดูความสัมพันธ์กับทุกคำได้พร้อมกัน (Attention) จึงเข้าใจบริบททั้งประโยค</p>
+      </div>
+    </div>
+    <div class="eq"><span>Transformer</span>+<span>ข้อมูลมหาศาล</span>+<span>GPU · NVIDIA</span>=<span class="res">LLM · Large Language Model</span></div>
+  </section>
+
+  <!-- Bridge: LLM knows the world -> Skill picks a part -->
+  <section class="bridge" aria-label="ตัวเชื่อมจาก LLM ไป Skill">
+    <div class="fig">
+      <svg viewBox="0 0 860 250" role="img" aria-label="LLM รู้ข้อมูลทั้งโลก Skill เลือกใช้เฉพาะส่วนที่งานต้องการ">
+        <defs><marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="f-ink"/></marker></defs>
+        <path d="M430 0 V22" class="s-muted" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <circle cx="430" cy="118" r="92" class="f-mkb" opacity=".45"/>
+        <circle cx="430" cy="118" r="92" class="s-ink" stroke-width="2"/>
+        <path d="M372 50c-10 18 8 26 2 42s-22 22-12 44 10 28 4 44M420 30c14 6 4 22 18 30s30-2 28 18-24 14-18 34 26 10 30 26M398 186c12-8 26-2 36-8M470 176c10 4 20-2 28 6" class="s-ink" stroke-width="1.6"/>
+        <rect x="448" y="104" width="54" height="48" rx="3" class="s-red" stroke-width="3"/>
+        <!-- left label -->
+        <text x="40" y="104" font-size="22">LLM</text>
+        <text x="40" y="130" font-size="15" class="t-muted">เรียนรู้จากข้อมูลทั้งโลก</text>
+        <text x="40" y="152" font-size="15" class="t-muted">รู้กว้างแทบทุกเรื่อง</text>
+        <path d="M250 118 H322" class="s-muted" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <!-- right label -->
+        <path d="M512 128 H592" class="s-red" stroke-width="2" marker-end="url(#ar6)"/>
+        <text x="604" y="122" font-size="19" style="fill:var(--red)">เราต้องหยิบมาใช้</text>
+        <text x="604" y="148" font-size="15" class="t-muted">เฉพาะส่วนที่งานนี้ต้องการ</text>
+        <path d="M430 214 V246" class="s-ink" stroke-width="2" marker-end="url(#ar6)"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 5 Skill -->
+  <section>
+    <h2><span class="mk b">5 · Skill</span><span class="en">ล็อกผลลัพธ์ให้คงที่</span></h2>
+    <p class="lead">โดยปกติโมเดลตอบได้หลายแบบ (จุดที่กระจายทั้งกรอบ) <b>Skill</b> คือชุดคำสั่งและขั้นตอนที่เตรียมไว้ล่วงหน้า ช่วยบีบให้คำตอบอยู่ในกรอบที่เราต้องการ (กรอบแดง) ผลลัพธ์จึงคงที่และทำซ้ำได้ทุกครั้ง</p>
+    <div class="fig">
+      <svg viewBox="0 0 860 210" role="img" aria-label="Input ผ่าน Skill เข้าไปในพื้นที่คำตอบทั้งหมด Skill เลือกเฉพาะกรอบแดง ได้ Output ที่ถูกล็อก">
+        <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="f-ink"/></marker></defs>
+        <text x="10" y="112" font-size="26">Input</text>
+        <path d="M92 104 H140" class="s-ink" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="150" y="66" width="80" height="76" rx="4" class="s-ink" stroke-width="2"/>
+        <rect x="160" y="76" width="60" height="56" rx="2" class="s-ink" stroke-width="1.2"/>
+        <text x="190" y="170" font-size="16" text-anchor="middle">Skill</text>
+        <path d="M240 104 H300" class="s-ink" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="310" y="14" width="250" height="182" class="s-ink" stroke-width="1.5"/>
+        <g class="f-muted" id="dots"></g>
+        <rect x="440" y="96" width="96" height="84" rx="3" class="s-red" stroke-width="3"/>
+        <text x="320" y="210" font-size="12" class="t-muted" dy="-2">คำตอบที่เป็นไปได้ทั้งหมด</text>
+        <path d="M570 104 H630" class="s-ink" stroke-width="2" marker-end="url(#ar4)"/>
+        <rect x="640" y="78" width="200" height="54" rx="4" class="s-ink" stroke-width="2"/>
+        <text x="740" y="113" font-size="24" text-anchor="middle">Output</text>
+        <g transform="translate(722 140)">
+          <path d="M8 14 V8 a10 10 0 0 1 20 0 V14" class="s-ink" stroke-width="2.5"/>
+          <rect x="0" y="14" width="36" height="28" rx="4" class="f-box"/>
+          <circle cx="18" cy="27" r="3.5" class="f-sheet"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 6 MCP -->
+  <section>
+    <h2><span class="mk b">6 · MCP</span><span class="en">Model Context Protocol</span></h2>
+    <p class="lead">MCP คือ “ภาษากลาง” ที่ทำให้ AI สั่งงานเครื่องมือภายนอกได้ เปรียบเหมือน <b>USB-C ของ AI</b> ต่อแบบเดียวกันแล้วใช้ได้กับทุกเครื่องมือ AI จึงไม่ได้แค่ตอบคำถาม แต่ลงมือทำงานจริงบนคอมพิวเตอร์และแอปได้</p>
+    <div class="fig">
+      <svg viewBox="0 0 860 150" role="img" aria-label="AI ส่งคำสั่งผ่าน MCP ไปยัง Tool แล้ว Tool ทำงานบนคอมพิวเตอร์">
+        <defs><marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="f-ink"/></marker></defs>
+        <rect x="20" y="30" width="110" height="90" class="s-ink" stroke-width="2"/>
+        <text x="75" y="88" font-size="32" text-anchor="middle">AI</text>
+        <path d="M140 75 H220" class="s-ink" stroke-width="2" marker-end="url(#ar5)"/>
+        <ellipse cx="300" cy="75" rx="72" ry="52" class="f-mkb"/>
+        <ellipse cx="300" cy="75" rx="72" ry="52" class="s-ink" stroke-width="2"/>
+        <text x="300" y="87" font-size="32" text-anchor="middle">MCP</text>
+        <path d="M382 75 H462" class="s-ink" stroke-width="2" marker-end="url(#ar5)"/>
+        <rect x="472" y="38" width="140" height="74" class="s-ink" stroke-width="2"/>
+        <text x="542" y="85" font-size="28" text-anchor="middle">Tool</text>
+        <path d="M622 75 H690" class="s-ink" stroke-width="2" marker-end="url(#ar5)"/>
+        <g transform="translate(702 28)">
+          <path d="M18 0 H130 V70 H18 Z" class="s-ink" stroke-width="2"/>
+          <path d="M26 8 H122 V62 H26 Z" class="s-muted" stroke-width="1"/>
+          <path d="M0 92 L18 70 H130 L148 92 Z" class="s-ink" stroke-width="2"/>
+          <path d="M58 84 H90" class="s-ink" stroke-width="2"/>
+        </g>
+        <text x="776" y="144" font-size="13" text-anchor="middle" class="t-muted">คอมพิวเตอร์ · แอป</text>
+      </svg>
+    </div>
+    <div class="kv">
+      <div><b>→</b><span>ตัวอย่าง: AI อ่านไฟล์ใน Google Drive, สร้างงานใน Figma, ส่งข้อความใน Slack ผ่าน MCP ของแต่ละเครื่องมือ</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>สรุป: เลือกโมเดลให้ตรงงาน · เข้าใจว่าข้างในคือ Transformer · ใช้ Skill คุมผลลัพธ์ · ใช้ MCP ให้ AI ลงมือทำ</span>
+    <span>ปรับปรุงจากโน้ตมือ 3 หน้า · พ.ย. 2569</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var g=document.getElementById('dots'); if(!g) return;
+  var ns='http://www.w3.org/2000/svg', s=7;
+  function r(){s=(s*9301+49297)%233280;return s/233280;}
+  for(var row=0;row<4;row++)for(var col=0;col<5;col++){
+    var c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',(340+col*48+(r()-.5)*14).toFixed(1));
+    c.setAttribute('cy',(42+row*42+(r()-.5)*12).toFixed(1));
+    c.setAttribute('r','4');
+    g.appendChild(c);
+  }
+})();
+</script>

@@ -12,6 +12,25 @@ Repo นี้รวบรวมไฟล์และตัวอย่างท
 | **สถานที่** | ห้องประชุม 16/203 คณะเทคโนโลยีสารสนเทศ |
 | **วิทยากร** | อ.วันฉัตร พูขุนทด |
 
+## เนื้อหาบรรยาย
+
+### แผนที่ AI ฉบับหน้าเดียว: ตั้งแต่โมเดลถึงเครื่องมือ
+
+สรุปภาพรวม AI ในหน้าเดียว แบ่งเป็น 6 ส่วน
+
+1. **Model Landscape** ใครเป็นใคร
+2. **Model Type** แยกตามสิ่งที่รับเข้าและสร้างออก
+3. **Flow** Prompt → Model → Output
+4. **เปิดกล่องดำ** Transformer → LLM
+5. **Skill** ล็อกผลลัพธ์ให้คงที่
+6. **MCP** Model Context Protocol
+
+| ไฟล์ | รูปแบบ |
+|---|---|
+| [index.html](lecture/ai-map-one-page/index.html) | หน้าเว็บ (เปิดในเบราว์เซอร์ สลับธีมสว่างและมืดตามเครื่อง) |
+| [ai-map-one-page.png](lecture/ai-map-one-page/export/ai-map-one-page.png) / [.pdf](lecture/ai-map-one-page/export/ai-map-one-page.pdf) | ธีมสว่าง |
+| [ai-map-one-page-dark.png](lecture/ai-map-one-page/export/ai-map-one-page-dark.png) / [.pdf](lecture/ai-map-one-page/export/ai-map-one-page-dark.pdf) | ธีมมืด |
+
 ## Skill ที่ใช้ในการบรรยาย
 
 | Skill | ใช้ทำอะไร | โฟลเดอร์ |
